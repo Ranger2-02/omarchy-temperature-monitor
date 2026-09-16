@@ -14,7 +14,7 @@ CPU and an idle GPU read differently at a glance.
 ## Install
 
 ```
-omarchy plugin add https://github.com/ranger/omarchy-temperature-monitor.git --enable
+omarchy plugin add https://github.com/Ranger2-02/omarchy-temperature-monitor.git --enable
 ```
 
 The widget lands in the **right** section by default. Move it if you like:
@@ -26,7 +26,7 @@ omarchy bar move ranger.tempmon --section center
 Manual install (if you prefer to review the code first — you always should):
 
 ```bash
-git clone https://github.com/ranger/omarchy-temperature-monitor.git \
+git clone https://github.com/Ranger2-02/omarchy-temperature-monitor.git \
   ~/.config/omarchy/plugins/ranger.tempmon
 omarchy-shell shell rescanPlugins
 omarchy plugin enable ranger.tempmon --section right
