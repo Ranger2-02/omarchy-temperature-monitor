@@ -45,6 +45,8 @@ entry for `ranger.tempmon` in `~/.config/omarchy/shell.json`:
 | `showCpu`   | boolean | `true`  | Show the CPU temperature.                            |
 | `showGpu`   | boolean | `true`  | Show the GPU temperature.                            |
 | `showLabel` | boolean | `true`  | Show the `CPU`/`GPU` labels; off gives `57° 49°`.    |
+| `unit`      | enum    | `Celsius` | Display unit: `Celsius` or `Fahrenheit`.           |
+| `showUnit`  | boolean | `false` | Append the unit letter, e.g. `57°C` / `135°F`.       |
 | `warnTemp`  | integer | `75`    | At or above this (°C) the reading turns orange.      |
 | `hotTemp`   | integer | `90`    | At or above this (°C) the reading turns red.         |
 | `interval`  | integer | `3000`  | Sensor poll interval in milliseconds (min 1000).     |

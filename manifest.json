@@ -30,6 +30,8 @@
       "showCpu": true,
       "showGpu": true,
       "showLabel": true,
+      "unit": "Celsius",
+      "showUnit": false,
       "warnTemp": 75,
       "hotTemp": 90,
       "interval": 3000
@@ -53,6 +55,21 @@
         "label": "Show CPU/GPU labels",
         "defaultValue": true,
         "description": "Turn off for a compact icon-free 65° 61° readout."
+      },
+      {
+        "key": "unit",
+        "type": "enum",
+        "label": "Temperature unit",
+        "options": ["Celsius", "Fahrenheit"],
+        "defaultValue": "Celsius",
+        "description": "Display unit only; thresholds are always Celsius."
+      },
+      {
+        "key": "showUnit",
+        "type": "boolean",
+        "label": "Show unit letter",
+        "defaultValue": false,
+        "description": "Append °C / °F instead of just °."
       },
       {
         "key": "warnTemp",

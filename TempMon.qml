@@ -19,6 +19,8 @@ BarWidget {
   readonly property bool showCpu: setting("showCpu", true) !== false
   readonly property bool showGpu: setting("showGpu", true) !== false
   readonly property bool showLabel: setting("showLabel", true) !== false
+  readonly property string unit: String(setting("unit", "Celsius"))
+  readonly property bool showUnit: setting("showUnit", false) === true
   readonly property int interval: Math.max(1000, Number(setting("interval", 3000)))
 
   readonly property color colorNormal: "#8ec07c"
@@ -35,8 +37,15 @@ BarWidget {
   readonly property string cpuText: (showLabel ? "CPU " : "") + reading(cpuTemp)
   readonly property string gpuText: (showLabel ? "GPU " : "") + reading(gpuTemp)
 
+  // Thresholds are always in Celsius (they describe the hardware); only the
+  // displayed value follows the chosen unit.
+  function convert(t) {
+    return unit === "Fahrenheit" ? t * 9 / 5 + 32 : t
+  }
+
   function reading(t) {
-    return isNaN(t) ? "--°" : Math.round(t) + "°"
+    var suffix = showUnit ? (unit === "Fahrenheit" ? "°F" : "°C") : "°"
+    return isNaN(t) ? "--" + suffix : Math.round(convert(t)) + suffix
   }
 
   function tempColor(t) {
