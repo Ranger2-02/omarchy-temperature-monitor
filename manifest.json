@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "id": "ranger.tempmon",
   "name": "Temperature Monitor",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "author": "Ranger McTague & opencode",
   "license": "MIT",
   "description": "CPU and GPU temperatures in the bar, colour-coded green/orange/red by threshold",
