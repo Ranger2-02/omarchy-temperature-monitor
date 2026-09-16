@@ -1,0 +1,80 @@
+{
+  "schemaVersion": 1,
+  "id": "ranger.tempmon",
+  "name": "Temperature Monitor",
+  "version": "1.0.0",
+  "author": "Ranger McTague & opencode",
+  "license": "MIT",
+  "description": "CPU and GPU temperatures in the bar, colour-coded green/orange/red by threshold",
+  "kinds": [
+    "bar-widget"
+  ],
+  "entryPoints": {
+    "barWidget": "TempMon.qml"
+  },
+  "barWidget": {
+    "displayName": "Temperature Monitor",
+    "description": "CPU and GPU temperatures, colour-coded green/orange/red by threshold.",
+    "category": "System",
+    "aliases": [
+      "temp",
+      "temps",
+      "temperature",
+      "cpu",
+      "gpu",
+      "thermal"
+    ],
+    "allowMultiple": false,
+    "defaultSection": "right",
+    "defaults": {
+      "showCpu": true,
+      "showGpu": true,
+      "showLabel": true,
+      "warnTemp": 75,
+      "hotTemp": 90,
+      "interval": 3000
+    },
+    "schema": [
+      {
+        "key": "showCpu",
+        "type": "boolean",
+        "label": "Show CPU temperature",
+        "defaultValue": true
+      },
+      {
+        "key": "showGpu",
+        "type": "boolean",
+        "label": "Show GPU temperature",
+        "defaultValue": true
+      },
+      {
+        "key": "showLabel",
+        "type": "boolean",
+        "label": "Show CPU/GPU labels",
+        "defaultValue": true,
+        "description": "Turn off for a compact icon-free 65° 61° readout."
+      },
+      {
+        "key": "warnTemp",
+        "type": "integer",
+        "label": "Warn threshold (°C)",
+        "defaultValue": 75,
+        "description": "Readings at or above this turn orange."
+      },
+      {
+        "key": "hotTemp",
+        "type": "integer",
+        "label": "Hot threshold (°C)",
+        "defaultValue": 90,
+        "description": "Readings at or above this turn red."
+      },
+      {
+        "key": "interval",
+        "type": "integer",
+        "label": "Refresh interval (ms)",
+        "defaultValue": 3000,
+        "description": "How often the sensors are polled."
+      }
+    ]
+  }
+}
