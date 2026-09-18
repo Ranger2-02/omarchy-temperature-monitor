@@ -2,10 +2,10 @@
   "schemaVersion": 1,
   "id": "ranger.tempmon",
   "name": "Temperature Monitor",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "author": "Ranger McTague & opencode",
   "license": "MIT",
-  "description": "CPU and GPU temperatures in the bar, colour-coded green/orange/red by threshold",
+  "description": "CPU and GPU temperatures in the bar with a popup to toggle each sensor on or off",
   "kinds": [
     "bar-widget"
   ],
@@ -14,7 +14,7 @@
   },
   "barWidget": {
     "displayName": "Temperature Monitor",
-    "description": "CPU and GPU temperatures, colour-coded green/orange/red by threshold.",
+    "description": "CPU and GPU temperatures, colour-coded green/orange/red by threshold. Click for a popup with per-sensor show/hide switches.",
     "category": "System",
     "aliases": [
       "temp",
@@ -41,13 +41,15 @@
         "key": "showCpu",
         "type": "boolean",
         "label": "Show CPU temperature",
-        "defaultValue": true
+        "defaultValue": true,
+        "description": "Also togglable from the widget popup; useful on machines without this sensor."
       },
       {
         "key": "showGpu",
         "type": "boolean",
         "label": "Show GPU temperature",
-        "defaultValue": true
+        "defaultValue": true,
+        "description": "Also togglable from the widget popup; switch off on machines with only an integrated GPU."
       },
       {
         "key": "showLabel",

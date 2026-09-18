@@ -11,6 +11,18 @@ CPU 57°  GPU 49°
 Both readings are plain text on the bar, each coloured independently, so a busy
 CPU and an idle GPU read differently at a glance.
 
+**Click the widget** to open a popup with the same readings in the same colours,
+plus a switch for each sensor to hide (or bring back) it on the bar. That's
+built for machines without a discrete GPU — if you only have an integrated one
+(which may expose no temperature sensor at all), turn the GPU readout off and
+it stops cluttering the bar. The switches persist across restarts.
+
+## Screenshots
+
+| The widget in the bar | Hovering shows the name | The popup with per-sensor toggles |
+| :-: | :-: | :-: |
+| ![In the bar](screenshots/TempDock.png) | ![Hover tooltip](screenshots/TempHover.png) | ![Popup with toggles](screenshots/TempPopup.png) |
+
 ## Install
 
 ```
@@ -35,6 +47,20 @@ omarchy plugin enable ranger.tempmon --section right
 There is nothing to build and no dependencies: it's QML plus a small Bash
 sensor reader.
 
+## Uninstall
+
+Take the widget off the bar without deleting it:
+
+```
+omarchy plugin disable ranger.tempmon
+```
+
+Remove it completely:
+
+```
+omarchy plugin remove ranger.tempmon
+```
+
 ## Settings
 
 Open the widget's settings from the Omarchy menu (*Setup > Plugins*), or edit the
@@ -56,6 +82,23 @@ Example — a compact, less shouty readout that only colours at high heat:
 ```json
 { "id": "ranger.tempmon", "showLabel": false, "warnTemp": 80, "hotTemp": 95 }
 ```
+
+## Popup and display toggles
+
+Left-click the widget to open a small popup showing both readings (coloured by
+the same thresholds as the bar) and a switch per sensor:
+
+- **CPU** — show/hide the CPU reading on the bar.
+- **GPU** — show/hide the GPU reading on the bar.
+
+Turning a sensor off dims its row in the popup and removes it from the bar.
+Handy when your machine has no discrete GPU: if the integrated GPU exposes no
+sensor, the reading would otherwise sit there as a permanent `--°`.
+
+The switches persist to `showCpu` / `showGpu` in the widget's `shell.json`
+entry, so they survive a restart. Middle-click the widget to sample the
+sensors immediately. Toggling **both** sensors off removes the widget from the
+bar; bring it back from *Setup > Plugins* or by editing `shell.json`.
 
 ## How it reads the sensors
 
